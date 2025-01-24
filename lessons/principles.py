@@ -73,6 +73,7 @@ def read_from_file_eafp(name):
         return result
     except:
         # sorry
+        pass
 
 
 # LBYL
@@ -83,3 +84,4 @@ def read_from_file_lbyl(name):
         return result
     else:
         # code
+        pass
