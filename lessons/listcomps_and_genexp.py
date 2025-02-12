@@ -1,8 +1,9 @@
 #   List comprehenshion = listcomps
 #   Generator expressions = genexp
+from time import sleep
 
 #   [ВЫРАЖЕНИЕ/ПРЕОБРАЗОВАНИЕ for ЭЛЕМЕНТ in ИСТОЧНИК if УСЛОВИЕ]
-# переменные в листкомпс и гинексп недоступны извне
+# переменные в листкомпс и генексп недоступны извне
 # читается слева направо
 # для словаря обязательно указать КЛЮЧ:ЗНАЧЕНИЕ
 
@@ -14,7 +15,7 @@
 # для производительности, лучше использовать genexp вместо liscomps, кроме случаев, когда нужна длина len или индексы
 
 
-squares = [element * element for element in range(10) if element % 2 == 0]
+squares = [e * e for e in range(10) if e % 2 == 0]
 
 text = 'hello world'
 words = [word.capitalize() for word in text.split()]
@@ -35,6 +36,14 @@ def some_source():
     print(111)
     return [1, 2, 3]
 
+def some_filter(x):
+    sleep(3)
+    return x
+
+def some_mapping(x):
+    sleep(3)
+    return x
+
 
 if __name__ == '__main__':
     print(squares)
@@ -49,3 +58,8 @@ if __name__ == '__main__':
     print(next(positives_gen))
 
     gen = (e for e in some_source())
+    print(next(gen))
+    print(next(gen))
+
+    it = (some_mapping(e) for e in some_source() if some_filter(e))
+    print(next(it))
