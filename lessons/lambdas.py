@@ -3,10 +3,15 @@
 # нельзя например писать в return присвоение: a=1
 # не выполняется до вызова: ()!!!
 
+# решение задач питон рашиа через лямбду:
+# нахождение факториала
+factorial = lambda x: 1 if x == 1 else x * factorial(x-1)
+print(factorial(5))
 
 def square(x):
     return x ** 2
 
+square(2)
 
 square_lambda = lambda x: x ** 2
 even_odd = lambda x: 'EVEN' if x % 2 == 0 else 'ODD'
@@ -44,6 +49,5 @@ if __name__ == '__main__':
     print(sorted(a_dict.items(), key=lambda x: x[0]))
 
     cats = [Cat('Tom', 4), Cat('Angela', 5)]
-    print((sorted(cats, key=lambda x:x.name)))
-    print((sorted(cats, key=lambda x:x.age)))
-
+    print((sorted(cats, key=lambda x: x.name)))
+    print((sorted(cats, key=lambda x: x.age)))
